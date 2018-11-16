@@ -1,25 +1,56 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-// import PresentationalComponent from './PresentationalComponent'
+import { StyleSheet, Text, View } from 'react-native'
+import PresentationalComponent from './PresentationalComponent'
 import InitFirebase from './Firebase/firebaseInit.js'
+import firebase from "firebase"
+
+let config_ = {
+   apiKey:'AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ',
+   authDomain:'we-are-open-91c93.firebaseapp.com',
+   databaseURL:'https://we-are-open-91c93.firebaseio.com',
+   storageBucket:'gs://we-are-open-91c93.appspot.com'
+}
+
+function initFirebase(config_) {
+   this.config_ = config_
+   firebase.initializeApp(config_)
+}
 
 export default class App extends React.Component {
    state = {
-      myState: 'initial commit '
+      openingApp: true,
+      myState: 'Credentials Firebase done',
+      toRender: false
    }
    updateState = () => {
-      this.setState({ myState: 'The state is updated' })
+      this.setState({ myState: 'fils de flute'})
+      console.log(this.setState.openingApp)
    }
+
+   handleFirebaseCredentials = () => {
+         initFirebase(config_)
+         this.setState({ openingApp: false})
+   }
+
    render() {
-      return (
-         <View styles = {styles.container}>
-            <InitFirebase myState = {this.state.myState} updateState = {this.updateState} />
-         </View>
-      );
+      if (this.state.openingApp == true) {
+         this.handleFirebaseCredentials()
+         console.log("DOING ONCE CREDENTIALS SHIT")
+      }
+
+      if (this.state.toRender == false) {  
+         return (
+            <View >
+               <PresentationalComponent myState = {this.state.myState} updateState = {this.updateState}/>
+            </View>
+         );
+      }
    }
+
+   
 }
 
- const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 	   flex: 1,
 	   backgroundColor: 'white',
@@ -28,4 +59,3 @@ export default class App extends React.Component {
 	   textShadowColor:'blue',
 	},
  });
- 
