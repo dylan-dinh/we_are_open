@@ -1,10 +1,7 @@
-import {FirebaseInit} from './Firebase/firebaseInit.js'
-
-
-
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import PresentationalComponent from './PresentationalComponent'
+// import PresentationalComponent from './PresentationalComponent'
+import InitFirebase from './Firebase/firebaseInit.js'
 
 export default class App extends React.Component {
    state = {
@@ -16,7 +13,7 @@ export default class App extends React.Component {
    render() {
       return (
          <View styles = {styles.container}>
-            <PresentationalComponent myState = {this.state.myState} updateState = {this.updateState} />
+            <InitFirebase myState = {this.state.myState} updateState = {this.updateState} />
          </View>
       );
    }
@@ -31,5 +28,4 @@ export default class App extends React.Component {
 	   textShadowColor:'blue',
 	},
  });
-
  

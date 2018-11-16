@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import { Text, View, StyleSheet } from 'react-native'
+import React, { Component } from 'react'
+import { Text, View , StyleSheet} from 'react-native'
+
 
 /*let config_ = {
     apiKey:'AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ',
@@ -13,13 +14,12 @@ const FirebaseInit = (props) => {
     return (
         <View>
             <Text onPress = {props.updateState} style = {styles.confFirebase}>
-                {props.apiKey}
+                {props.myState}
             </Text>
         </View>
     )
 }
 
-export default FirebaseInit
 
 const styles = StyleSheet.create ({
     confFirebase: {
@@ -30,4 +30,7 @@ const styles = StyleSheet.create ({
        fontSize: 20
     }
  })
+
+ export default FirebaseInit
+
 
