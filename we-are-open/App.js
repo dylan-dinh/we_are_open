@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import PresentationalComponent from './PresentationalComponent'
 import firebase from "firebase"
 
-let config_ = {
+var config_ = {
    apiKey:'AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ',
    authDomain:'we-are-open-91c93.firebaseapp.com',
    databaseURL:'https://we-are-open-91c93.firebaseio.com',
@@ -23,7 +23,7 @@ export default class App extends React.Component {
    }
    updateState = () => {
       this.setState({ myState: 'fils de flute'})
-      console.log(this.setState.openingApp)
+      //console.log(this.setState.openingApp)
    }
 
    handleFirebaseCredentials = () => {
@@ -34,7 +34,7 @@ export default class App extends React.Component {
    render() {
       if (this.state.openingApp == true) {
          this.handleFirebaseCredentials()
-         console.log("DOING ONCE CREDENTIALS SHIT")
+         //console.log("DOING ONCE CREDENTIALS SHIT")
       }
 
       if (this.state.toRender == false) {  
