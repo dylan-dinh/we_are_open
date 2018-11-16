@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native'
 import PresentationalComponent from './PresentationalComponent'
-import InitFirebase from './Firebase/firebaseInit.js'
 import firebase from "firebase"
 
 let config_ = {
