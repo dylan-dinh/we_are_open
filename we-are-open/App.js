@@ -1,93 +1,83 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native'
-import { StackNavigator } from 'react-navigation'
-import PresentationalComponent from './PresentatioonalComponent/PresentationalComponent'
-import Register from './Screens/Register'
-import Home from './Screens/Home'
-import firebase from "firebase"
-import Settings from './Screens/Settings'
-import Welcome from './Screens/Welcome'
+import { StyleSheet, Text, View, Button} from 'react-native'
 
-let config_ = {
-   apiKey:'AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ',
-   authDomain:'we-are-open-91c93.firebaseapp.com',
-   databaseURL:'https://we-are-open-91c93.firebaseio.com',
-   storageBucket:'gs://we-are-open-91c93.appspot.com'
-}
+import ScreenStack from './Navigation/navigator'
+import NavigatorService from './Navigation/NavigatorService'
+import { ThemeProvider } from 'react-native-elements'
+import * as firebase from "firebase"
 
-let openingApp = true
-let toRender = false
-let isItConnected = true
 
-const HomeView = StackNavigator({
-   HomeScreen: { screen: Home },
- });
 
- const RegisterView = StackNavigator({
-   RegisterScreen: {screen: Register}
- });
+const theme = {
+   Button: {
+       raised: true,
+       titleStyle: {
+         color: 'pink'
+     },
+   },
+ };
 
- const WelcomeView = StackNavigator({
-   WelcomeScreen: {screen: Welcome}
- });
+ let openingApp = true
 
 export default class App extends React.Component {
-   state = {
-      myState: 'Credentials Firebase done'
-   }
-   
-   initFirebase = (config_) => {
-      this.config_ = config_
-      firebase.initializeApp(config_)
-   }
 
-   handleFirebaseCredentials = () => {
-         this.initFirebase(config_)
+   initFirebase = () => {
+      firebase.initializeApp({
+         apiKey:'AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ',
+         authDomain:'we-are-open-91c93.firebaseapp.com',
+         databaseURL:'https://we-are-open-91c93.firebaseio.com',
+         storageBucket:'gs://we-are-open-91c93.appspot.com'
+      })
    }
-
-   handleUser = () => {
-      firebase.auth().onAuthStateChanged(function(user) {
-         if (user) {
-            isItConnected = true
-            alert("lol")
-         }
-         else {
-            isItConnected = false
-            alert("no one connected")           
-         }
-      });
-   }
-
    render() {
       if (openingApp === true) {
-         this.handleFirebaseCredentials()
-         this.handleUser()
-         alert(isItConnected)
+         //this.initFirebase()
          openingApp = false
       }
 
-      if (toRender == false) {
-         if (isItConnected == true) {
-            toRender = true
-      }
-         else {
-            toRender = false
-         }  // <PrestationalComponent myState = {this.state.myState} openingApp = {this.state.openingApp} updateState = {this.updateState}/>
-      }
-
-      if (toRender == true)
-         {
-            return <WelcomeView/>
-         }
-      else { 
-         return <Register/>
-      }
-      
+      return (
+         <View style = {styles.container}>
+         <ThemeProvider theme = {theme}>
+            <ScreenStack ref = { navigatorRef => {
+              NavigatorService.setTopLevelNavigator(navigatorRef);
+            } } />
+         </ThemeProvider>
+         </View>
+      )
    }
+
+
+      /*
+
+      if (this.isUserConnected() === true)
+         if (isItConnected == true) {
+            return (
+               <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                 <Text>Home Screen</Text>
+                 <Button
+                   title="Go to WelcomeScreen"
+                   onPress={() => this.props.navigation.navigate('Welcome')}
+                 />
+               </View>
+             );
+      }
+         if (this.isUserConnected === false) {
+            return (
+               <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                 <Text>Home Screen</Text>
+                 <Button
+                   title="Go to RegisterScreen"
+                   onPress={() => this.props.navigation.navigate('Register')}
+                 />
+               </View>
+             );
+         }   // <PrestationalComponent myState = {this.state.myState} openingApp = {this.state.openingApp} updateState = {this.updateState}/>
+      
+      */
 }
 
 const styles = StyleSheet.create({
-	container: {
-	   backgroundColor: 'blue',
-	},
+   container: {
+      flex: 1,
+   }
  });
