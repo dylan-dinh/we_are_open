@@ -32,7 +32,7 @@ export default class Welcome extends React.Component {
   </Text>
   <ReactNavigation.Button
     backgroundColor='#03A9F4'
-    onPress= { () => this.props.navigation.navigate('Register')}
+    onPress= { () => this.props.navigation.navigate('GoogleBusinessApi')}
     buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
     title='VIEW GOOGLE API NOW' />
 </ReactNavigation.Card>

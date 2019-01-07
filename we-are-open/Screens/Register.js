@@ -15,6 +15,7 @@ export default class Register extends Component {
 
     handleEmail = (text) => {
         this.setState({ email: text })
+        //alert(this.state.email)
      }
 
      handlePassword = (text) => {
@@ -39,19 +40,35 @@ export default class Register extends Component {
             });
           }*/
 
-          writeUserData(email,fname,lname){
-            firebase.database().ref('Users/').set({
+          writeUserData = (email,fname,lname) => {
+            console.log("mdeferzferferferferferfeef\n")
+            let user = firebase.auth().currentUser
+            let db = firebase.database()
+            db.ref('/Users/' + user.uid).set({
                 email,
                 fname,
                 lname
             }).then((data)=>{
                 //success callback
                 console.log('data ' , data)
+                console.log("mdeferzferferferferferfeef\n")
             }).catch((error)=>{
                 //error callback
                 console.log('error ' , error)
             })
         }
+
+         addUser = (email, name, company_name, password) => {
+         var rootRef = firebase.database().ref();
+         var storesRef = rootRef.child('Users/');
+         var newStoreRef = storesRef.push();
+         newStoreRef.set({
+           email: email,
+           name: name,
+           company_name: company_name,
+         });
+         this.signUp(email, password, this.state.accountCreated)
+       }
 
      signUp = (email, pass, accountCreated_) => {
         this.firebaseSignUp(email, pass, accountCreated_)
@@ -157,8 +174,9 @@ export default class Register extends Component {
                 color = '#2f2d30'
                 title = "Register"
                 onPress = { 
-                    () => this.writeUserData(this.state.email, this.state.name, 
-                                             this.company_name)
+                    () => this.addUser(this.state.email, this.state.name, 
+                                             this.state.company_name,
+                                             this.state.password)
                 }
                 />
                 </ThemeProvider>

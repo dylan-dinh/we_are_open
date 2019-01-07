@@ -5,6 +5,7 @@ import ScreenStack from './Navigation/navigator'
 import NavigatorService from './Navigation/NavigatorService'
 import { ThemeProvider } from 'react-native-elements'
 import * as firebase from "firebase"
+import FirebaseCredentials from './Credentials/FirebaseCredentials';
 
 
 
@@ -20,20 +21,7 @@ const theme = {
  let openingApp = true
 
 export default class App extends React.Component {
-
-   initFirebase = () => {
-      firebase.initializeApp({
-         apiKey:'AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ',
-         authDomain:'we-are-open-91c93.firebaseapp.com',
-         databaseURL:'https://we-are-open-91c93.firebaseio.com',
-         storageBucket:'gs://we-are-open-91c93.appspot.com'
-      })
-   }
    render() {
-      if (openingApp === true) {
-         //this.initFirebase()
-         openingApp = false
-      }
 
       return (
          <View style = {styles.container}>

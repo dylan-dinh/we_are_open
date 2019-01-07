@@ -1,6 +1,6 @@
 import * as ReactNavigation from 'react-navigation';
 
-import CredentialsScreen from '../Credentials';
+import CredentialsScreen from '../Credentials/Credentials';
 
 import LoginScreen from '../Screens/Login'
 import WelcomeScreen from '../Screens/Welcome'

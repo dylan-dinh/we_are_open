@@ -31,7 +31,7 @@ export default class FirebaseCredentials extends React.Component {
 
          }
         return (
-          <View style = {styles.container}>
+          <View >
             </View>
 
         )
