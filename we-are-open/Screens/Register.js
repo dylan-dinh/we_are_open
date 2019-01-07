@@ -18,6 +18,10 @@ export default class Register extends Component {
         //alert(this.state.email)
      }
 
+     handleMaBite = () => {
+         console.log("MDR")
+     }
+
      handlePassword = (text) => {
         this.setState({ password: text })
       }
