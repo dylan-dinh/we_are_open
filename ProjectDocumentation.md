@@ -24,13 +24,13 @@ We Are Open is an application designed for Business owners and business managers
 When we had the team formed and team members were on the task, we had a meeting to plan the App Development process. We decided to choose SCRUM Methodology, as an Agile method was the most suitable for our situation. 
 In Scrum development we use sprints to develop different functionalities. Each sprint planning is described in terms of the desired outcome (a commitment to a set of features to be developed in the next sprint) instead of a set of Entry criteria, Task definitions, Validation criteria, Exit criteria (ETVX) and so on, as would be provided in most methodologies. The planning of the evolution of our project can be seen in this terms of the desired outcome of each sprint:
   - Initial Srint.
-  The first funcionalities of the app: Registration using the firebase database system connected to the app.
+The first funcionalities of the app: Registration using the firebase database system connected to the app.
   - Second sprin.
-  Continuing with funcionalities: LogIn process as well as persistance of login in the app inside the device.
+Continuing with funcionalities: LogIn process as well as persistance of login in the app inside the device.
   - Third sprin.
-  First API integration: post event using Facebook API.
+First API integration: post event using Facebook API.
   - Fourth sprint
-  Last funtionality: implementiation of change in Opening hours
+Last funtionality: implementiation of change in Opening hours
 
 ## Install depedencies :
   - run ’npm install’ at root directory
