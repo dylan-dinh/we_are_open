@@ -1,5 +1,5 @@
 # We Are Open
-Project Documentation for we_are_open
+Project Documentation for We Are Open
 
 ## 1. Group Members
 
