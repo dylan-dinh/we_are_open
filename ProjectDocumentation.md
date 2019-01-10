@@ -17,7 +17,7 @@ We Are Open is an application designed for Business owners and business managers
 ## 3.Tools used to create the app
 
   - React Native: React Native is a cross-platform framework based on JavaScript. With it you can develop the android and IOS versions of your app at the same time.
-  - Firebase: Firebase is a Database facilitying tool from Google. It saves work on developing the database system as it offers this database funcionality as an API. It's a cross-platform element, meaning it can be used for the android and the IOS vrsions of our app.
+  - Firebase: Firebase is a Database facilitying tool from Google. It saves work on developing the database system as it offers this database funcionality as an API. It's a cross-platform element, meaning it can be used for the android and the IOS versions of our app.
 
 ## 4.Planning and Methodology
 
