@@ -3,7 +3,7 @@ Project Documentation for we_are_open
 
 ## 1. Group Members
 
-We formed a team between the erasmus members from Software Analysis and Design subject, a course from FOI Faculty, Varazdin, in course 2018-19. 
+We have formed a team of European students from France and Spain to get together and develop the project exponed in this document.
 
 The members of this team are: 
   - Dylan Dinh as General Manager and Developper
@@ -21,7 +21,16 @@ We Are Open is an application designed for Business owners and business managers
 
 ## 4.Planning and Methodology
 
-At the beginning of the course, when we had the team formed and team members were on the task, we had a meeting to plan the App Development process. We decided to choose SCRUM Methodology, as an Agile method was the most suitable for our situation. We choose SCRUM t 
+When we had the team formed and team members were on the task, we had a meeting to plan the App Development process. We decided to choose SCRUM Methodology, as an Agile method was the most suitable for our situation. 
+In Scrum development we use sprints to develop different functionalities. Each sprint planning meeting is described in terms of the desired outcome (a commitment to a set of features to be developed in the next sprint) instead of a set of Entry criteria, Task definitions, Validation criteria, Exit criteria (ETVX) and so on, as would be provided in most methodologies. The evolution of our project can be seen in this terms of the desired outcome of each sprint:
+  - Initial Srint 
+  The first funcionalities of the app: Registration using the firebase database system connected to the app.
+  -Second sprint
+  Continuing with funcionalities: LogIn process as well as persistance of login in the app inside the device.
+  -Third sprint
+  First API implemention: post event using Facebook API.
+  -Fourth sprint
+  Last funtionality: implementiation of change in Opening hours
 
 ## Install depedencies :
   - run ’npm install’ at root directory
