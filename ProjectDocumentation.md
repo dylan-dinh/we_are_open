@@ -25,11 +25,11 @@ When we had the team formed and team members were on the task, we had a meeting 
 In Scrum development we use sprints to develop different functionalities. Each sprint planning meeting is described in terms of the desired outcome (a commitment to a set of features to be developed in the next sprint) instead of a set of Entry criteria, Task definitions, Validation criteria, Exit criteria (ETVX) and so on, as would be provided in most methodologies. The evolution of our project can be seen in this terms of the desired outcome of each sprint:
   - Initial Srint 
   The first funcionalities of the app: Registration using the firebase database system connected to the app.
-  -Second sprint
+  - Second sprint
   Continuing with funcionalities: LogIn process as well as persistance of login in the app inside the device.
-  -Third sprint
+  - Third sprint
   First API integration: post event using Facebook API.
-  -Fourth sprint
+  - Fourth sprint
   Last funtionality: implementiation of change in Opening hours
 
 ## Install depedencies :
