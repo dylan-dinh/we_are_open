@@ -28,7 +28,7 @@ In Scrum development we use sprints to develop different functionalities. Each s
   -Second sprint
   Continuing with funcionalities: LogIn process as well as persistance of login in the app inside the device.
   -Third sprint
-  First API implemention: post event using Facebook API.
+  First API integration: post event using Facebook API.
   -Fourth sprint
   Last funtionality: implementiation of change in Opening hours
 
