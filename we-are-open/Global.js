@@ -1,0 +1,2 @@
+global.openingApp
+openingApp = true;

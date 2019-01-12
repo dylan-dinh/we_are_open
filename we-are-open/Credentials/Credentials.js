@@ -48,7 +48,7 @@ export default class Credentials extends React.Component {
 
    render() {
       if (openingApp === true) {
-         this.initFirebase(config_)
+         //this.initFirebase(config_)
          this.isUserConnected(this)
          openingApp = false
       }

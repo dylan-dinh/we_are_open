@@ -18,11 +18,23 @@ const theme = {
    },
  };
 
- let openingApp = true
-
 export default class App extends React.Component {
-   render() {
 
+   initFirebase = () => {
+      firebase.initializeApp({
+         apiKey:'AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ',
+         authDomain:'we-are-open-91c93.firebaseapp.com',
+         databaseURL:'https://we-are-open-91c93.firebaseio.com',
+         storageBucket:'gs://we-are-open-91c93.appspot.com'
+      })
+   }
+
+   render() {
+      if (openingApp) {
+         this.initFirebase()
+         alert("in inint firebase")
+         openingApp = false
+      }
       return (
          <View style = {styles.container}>
          <ThemeProvider theme = {theme}>

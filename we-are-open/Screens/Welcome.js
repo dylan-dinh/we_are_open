@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text , StyleSheet} from 'react-native'
 import firebase from 'firebase'
 import * as ReactNavigation from 'react-native-elements';
-import Icon from 'react-native-vector-icons';
+import AddNewApi from '../AddNewApi'
 
 export default class Welcome extends React.Component {
     constructor(props) {
@@ -37,6 +37,16 @@ export default class Welcome extends React.Component {
     title='VIEW GOOGLE API NOW' />
 </ReactNavigation.Card>
 
+
+<AddNewApi
+        buttonStyles = {styles.input}
+        content = {'Custom text'}
+        image = {require('../assets/risitaspeur.png')}
+        cardTitle = {'New card'}
+        buttonTitle = {'View new api'}
+        onPress = {() => this.props.navigation.navigate('GoogleBusinessApi')}
+    />
+
 <ReactNavigation.Button title="Disconnect"
     buttonStyle={{
                     backgroundColor: "#2f2d30",
@@ -51,7 +61,7 @@ export default class Welcome extends React.Component {
         () => firebase.auth().signOut().then(function() {
     }).catch(function(error) {
         }) } 
-    />
+    />   
             </View>
         )
     }
@@ -68,12 +78,12 @@ const styles = StyleSheet.create({
 
 
     input: {
-       margin: 8,
-       height: 40,
-       borderColor: 'rgba(92, 99,216, 1)',
-       borderWidth: 2,
-       borderRadius: 5
-
+        backgroundColor: "#2f2d30",
+        padding: 1,
+        margin: 15,
+        height: 40,
+        borderWidth: 1,
+        borderRadius: 5
     },
 
     input_paswd: {

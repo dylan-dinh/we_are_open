@@ -137,7 +137,7 @@ export default class Register extends Component {
                  color = "pink"/>
 
             <TextInput style = {styles.input} 
-                secureTextEntry = "true"
+                secureTextEntry = {true}
                  underlineColorAndroid = "transparent"
                  placeholder = "Password"
                  placeholderTextColor = "pink"
@@ -175,7 +175,6 @@ export default class Register extends Component {
                borderWidth: 0,
                borderRadius: 5
              }}
-                color = '#2f2d30'
                 title = "Register"
                 onPress = { 
                     () => this.addUser(this.state.email, this.state.name, 
