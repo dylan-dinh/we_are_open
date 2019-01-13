@@ -39,7 +39,8 @@ export default class Welcome extends React.Component {
         <AddNewApi
           buttonStyles={styles.input}
           cardTitle={"Google Business API"}
-          image={require("../assets/risitaspeur.png")}
+          titleStyle={{ color: "pink" }}
+          image={require("../assets/G_logo.png")}
           content={
             "Here you can post new event through our app or changing info"
           }
@@ -50,7 +51,8 @@ export default class Welcome extends React.Component {
         <AddNewApi
           buttonStyles={styles.input}
           cardTitle={"New card"}
-          image={require("../assets/risitaspeur.png")}
+          titleStyle={{ color: "pink" }}
+          image={require("../assets/Facebook-icon.png")}
           content={"Custom text"}
           buttonTitle={"View new API"}
           onPress={() => this.props.navigation.navigate("GoogleBusinessApi")}

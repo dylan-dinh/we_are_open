@@ -7,6 +7,7 @@ import * as ReactNavigation from "react-native-elements";
 export default class AddNewApi extends React.Component {
   static propTypes = {
     content: PropTypes.string.isRequired,
+    titleStyle: PropTypes.object.isRequired,
     onPress: PropTypes.any.isRequired,
     image: PropTypes.any.isRequired,
     cardTitle: PropTypes.string.isRequired,
@@ -20,13 +21,33 @@ export default class AddNewApi extends React.Component {
   };
 
   render() {
-    const { cardTitle, content, onPress, buttonTitle, image } = this.props;
+    const {
+      cardTitle,
+      content,
+      onPress,
+      buttonTitle,
+      image,
+      titleStyle
+    } = this.props;
     return (
-      <View style={styles.container}>
-        <ReactNavigation.Card title={cardTitle} image={image}>
-          <Text style={{ marginBottom: 10 }}>{content}</Text>
+      <View>
+        <ReactNavigation.Card
+          containerStyle={{
+            backgroundColor: "#2f2d30",
+            borderColor: "black"
+          }}
+          title={cardTitle}
+          titleStyle={titleStyle}
+          image={image}
+          style={styles.container}
+        >
+          <Text style={{ marginBottom: 10, color: "pink" }}>{content}</Text>
 
-          <ReactNavigation.Button title={buttonTitle} onPress={onPress} />
+          <ReactNavigation.Button
+            title={buttonTitle}
+            onPress={onPress}
+            buttonStyle={styles.input}
+          />
         </ReactNavigation.Card>
       </View>
     );
@@ -43,10 +64,12 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    margin: 8,
+    backgroundColor: "rgba(92, 99,216, 1)",
+    padding: 1,
+    margin: 15,
     height: 40,
-    borderColor: "rgba(92, 99,216, 1)",
-    borderWidth: 2,
+    borderColor: "transparent",
+    borderWidth: 0,
     borderRadius: 5
   },
 
