@@ -1,97 +1,94 @@
-import * as ReactNavigation from 'react-navigation';
+import * as ReactNavigation from "react-navigation";
 
-import CredentialsScreen from '../Credentials/Credentials';
+import CredentialsScreen from "../Credentials/Credentials";
 
-import LoginScreen from '../Screens/Login'
-import WelcomeScreen from '../Screens/Welcome'
-import RegisterScreen from '../Screens/Register'
-import HomeScreen from '../Screens/Home'
-import GoogleBusinessApiScreen from '../Screens/GoogleBusinessApi'
-import GetInfoUserScreen from '../Screens/GetInfoUser'
-
-
+import LoginScreen from "../Screens/Login";
+import WelcomeScreen from "../Screens/Welcome";
+import RegisterScreen from "../Screens/Register";
+import HomeScreen from "../Screens/Home";
+import GoogleBusinessApiScreen from "../Screens/GoogleBusinessApi";
+import GetInfoUserScreen from "../Screens/GetInfoUser";
 
 const AppNavigator = ReactNavigation.createStackNavigator(
-    {
-        Credentials: {
-          screen: CredentialsScreen,
-          navigationOptions: () => ({
-            title: "Credentials",
-            headerBackTitle: null,
-          }),
-        },
-
-        Home: {
-          screen: HomeScreen,        
-        },
-
-        GetInfoUser: {
-          screen: GetInfoUserScreen,
-          navigationOptions: () => ({
-            title: "Google Business API",
-            headerBackTitle: null,
-          }),     
-        },
-
-        GoogleBusinessApi: {
-          screen: GoogleBusinessApiScreen,
-          navigationOptions: () => ({
-            title: "Google Business API",
-            headerBackTitle: null,
-          }),
-        },
-
-        Login: {
-          screen: LoginScreen,
-          navigationOptions: () => ({
-            title: "Login",
-            headerBackTitle: null,
-            headerLeft: null,
-          }),
-        },
-
-        Welcome: {
-          screen: WelcomeScreen,
-          navigationOptions: () => ({
-            title: "Welcome",
-            headerBackTitle: null,
-            headerLeft: null,
-          }),
-        },
-
-        Register: {
-          screen: RegisterScreen,
-          navigationOptions: () => ({
-            title: "Register",
-            headerBackTitle: null,
-          }),
-        },
+  {
+    Credentials: {
+      screen: CredentialsScreen,
+      navigationOptions: () => ({
+        title: "Credentials",
+        headerBackTitle: null
+      })
     },
-    {
-        initialRouteName: "Credentials",
-        defaultNavigationOptions: {
-          headerStyle: {
-            backgroundColor: '#2f2d30',
-          },
-          headerTintColor: 'pink',
-          headerTitleStyle: 'pink',
-        }
-        
-    });
 
-    const AppContainer = ReactNavigation.createAppContainer(AppNavigator)
+    Home: {
+      screen: HomeScreen
+    },
 
-    export default AppContainer
+    GetInfoUser: {
+      screen: GetInfoUserScreen,
+      navigationOptions: () => ({
+        title: "Google Business API",
+        headerBackTitle: null
+      })
+    },
 
+    GoogleBusinessApi: {
+      screen: GoogleBusinessApiScreen,
+      navigationOptions: () => ({
+        title: "Google Business API",
+        headerBackTitle: null
+      })
+    },
 
-  /*  const TabNavigator = createBottomTabNavigator({
+    Login: {
+      screen: LoginScreen,
+      navigationOptions: () => ({
+        title: "Login",
+        headerBackTitle: null,
+        headerLeft: null
+      })
+    },
+
+    Welcome: {
+      screen: WelcomeScreen,
+      navigationOptions: () => ({
+        //title: "Welcome",
+        headerBackTitle: null,
+        headerLeft: null
+      })
+    },
+
+    Register: {
+      screen: RegisterScreen,
+      navigationOptions: () => ({
+        title: "Register",
+        headerBackTitle: null
+      })
+    }
+  },
+  {
+    initialRouteName: "Credentials",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#2f2d30"
+      },
+      headerTintColor: "pink",
+      headerTitleStyle: "pink"
+    }
+  }
+);
+
+const AppContainer = ReactNavigation.createAppContainer(AppNavigator);
+
+export default AppContainer;
+
+/*  const TabNavigator = createBottomTabNavigator({
         Home: HomeScreen,
         Welcome: WelcomeScreen,
       });
       
       export default createAppContainer(TabNavigator); */
 
-     /* const StackNavigatorOptions = {
+/* const StackNavigatorOptions = {
         navigationOptions: {
           header: null
         }
@@ -148,7 +145,7 @@ const AppNavigator = ReactNavigation.createStackNavigator(
       );
       */
 
-    /*Home: {
+/*Home: {
       screen: HomeScreen
     },
     Login: {
@@ -159,16 +156,8 @@ const AppNavigator = ReactNavigation.createStackNavigator(
     },
     Register: {
         screen: RegisterScreen
-    },*/  
+    },*/
 //export default createAppContainer(AppNavigator);
-
-
-
-
-
-
-
-
 
 /*
 const StackNavigatorOptions = {

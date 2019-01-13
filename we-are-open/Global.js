@@ -1,2 +1,1 @@
-global.openingApp
-openingApp = true;
+global.currentUser2;
