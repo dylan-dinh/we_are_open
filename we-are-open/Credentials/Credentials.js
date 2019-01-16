@@ -19,6 +19,12 @@ export default class Credentials extends React.Component {
     currentUser2 = firebase.auth().currentUser;
   }
 
+  componentDidMount() {
+    if (this.state.isConnected) {
+      return this.props.navigation.navigate("Welcome");
+    } else return this.props.navigation.navigate("Login");
+  }
+
   initFirebase = config_ => {
     this.config_ = config_;
     firebase.initializeApp({
@@ -47,8 +53,9 @@ export default class Credentials extends React.Component {
   };
 
   render() {
-    if (this.state.isConnected) {
+    /* if (this.state.isConnected) {
       return this.props.navigation.navigate("Welcome");
-    } else return this.props.navigation.navigate("Login");
+    } else return this.props.navigation.navigate("Login");*/
+    return null;
   }
 }
