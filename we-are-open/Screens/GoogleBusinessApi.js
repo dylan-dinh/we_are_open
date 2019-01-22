@@ -1,59 +1,73 @@
-import React from 'react';
-import { StyleSheet, Text, View, Alert } from 'react-native';
-import {GoogleSignin,GoogleSigninButton,statusCodes,} from 'react-native-google-signin';
-import { Button } from 'react-native-elements';
+import React from "react";
+import { StyleSheet, Text, View, Alert } from "react-native";
+import { Button } from "react-native-elements";
+import OAuthManager from "react-native-oauth";
+
+const manager = new OAuthManager("weareopen");
+manager.configure({
+  google: {
+    callback_url:
+      "com.googleusercontent.apps.458376293169-1c3ncj2aj14kp48kus7cerchc3balmtf:/google",
+    client_id:
+      "458376293169-1c3ncj2aj14kp48kus7cerchc3balmtf.apps.googleusercontent.com",
+    client_secret: "Qh9TIlGp6X7AQOt4zS6a5m-H"
+  }
+});
 
 export default class GoogleBusinessApi extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInfo: '',
+      error: null,
+      resp: ""
     };
-    GoogleSignin.configure({
-      scopes: ['https://www.googleapis.com/auth/plus.login'], // what API you want to access on behalf of the user, default is email and profile
-      webClientId: '458376293169-kpmdml20u0nmks32gpg6oti2pvgtg9ia.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
-      offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-      hostedDomain: '', // specifies a hosted domain restriction
-      loginHint: '', // [iOS] The user's ID, or email address, to be prefilled in the authentication UI if possible. [See docs here](https://developers.google.com/identity/sign-in/ios/api/interface_g_i_d_sign_in.html#a0a68c7504c31ab0b728432565f6e33fd)
-      forceConsentPrompt: true, // [Android] if you want to show the authorization prompt at each login.
-      accountName: '', // [Android] specifies an account name on the device that should be used
-      iosClientId: '<FROM DEVELOPER CONSOLE>', // [iOS] optional, if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
-    });
   }
-  _signIn = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      this.setState({ userInfo });
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (f.e. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
+
+  /*initManagerOauth = () => {
+    const manager = new OAuthManager("weareopen");
+    manager.configure({
+      google: {
+        callback_url:
+          "com.googleusercontent.apps.458376293169-1c3ncj2aj14kp48kus7cerchc3balmtf:/google",
+        client_id:
+          "458376293169-1c3ncj2aj14kp48kus7cerchc3balmtf.apps.googleusercontent.com",
+        client_secret: "Qh9TIlGp6X7AQOt4zS6a5m-H"
       }
-    }
-  };
+    });
+  };*/
+
+  componentDidMount() {
+    //this.initManagerOauth();
+    manager
+      .authorize("google", { scopes: {} })
+      .then(resp => this.setState({ resp }))
+      .catch(error => this.setState({ error }));
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <GoogleSigninButton
-          style={{ width: 312, height: 48 }}
-          size={GoogleSigninButton.Size.Wide}
-          color={GoogleSigninButton.Color.Light}
-          onPress={this._signIn}></GoogleSigninButton>
+        <Text style={styles.welcome}>{JSON.stringify(this.state)}</Text>
       </View>
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
   },
+  welcome: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10
+  },
+  instructions: {
+    textAlign: "center",
+    color: "#333333",
+    marginBottom: 5
+  }
 });

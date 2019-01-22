@@ -1,6 +1,6 @@
-import React from 'react';
-import firebase from '@firebase/app'
-import '@firebase/auth'
+import React from "react";
+import firebase from "@firebase/app";
+import "@firebase/auth";
 
 const config_ = {
   apiKey: "AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ",
@@ -52,7 +52,7 @@ export default class Credentials extends React.Component {
   };
 
   render() {
-     if (this.state.isConnected) {
+    if (this.state.isConnected) {
       return this.props.navigation.navigate("Welcome");
     } else return this.props.navigation.navigate("Login");
     return null;
