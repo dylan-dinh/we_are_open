@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import { View, Text, TouchableOpacity, TextInput, StyleSheet, StatusBar } from 'react-native'
-import * as ReactNavigation from 'react-native-elements';
 import { FormLabel, FormInput, FormValidationMessage, Button, ThemeProvider } from 'react-native-elements'
-import Icon from 'react-native-vector-icons/FontAwesome';
-import firebase from "firebase"
+import firebase from '@firebase/app'
+import '@firebase/auth'
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -83,30 +82,32 @@ export default class Login extends React.Component {
         return (
             <View style = {styles.container}>
             <TextInput style = {styles.input}
-                 underlineColorAndroid = "transparent"
-                 placeholder = "Email"
-                 placeholderTextColor = "pink"
-                 autoCapitalize = "none"
+                 underlineColorAndroid = {'transparent'}
+                 placeholder = {"Email"}
+                 placeholderTextColor = {'pink'}
+                 autoCapitalize = {"none"}
                  onChangeText = {this.handleEmail}
-                 keyboardType = "email-address"
-                 color = "pink"/>
+                 keyboardType = {"email-address"}                 
+                 //color = {'pink'}
+                 />
 
             <TextInput style = {styles.input} 
                 secureTextEntry = {true}
-                 underlineColorAndroid = "transparent"
-                 placeholder = "Password"
-                 placeholderTextColor = "pink"
-                 autoCapitalize = "none"
+                 underlineColorAndroid = {'transparent'}
+                 placeholder = {"Password"}
+                 placeholderTextColor = {'pink'}
+                 autoCapitalize = {"none"}
                  onChangeText = {this.handlePassword}
-                 color = "pink"/>
+                 //color = {'pink'}
+                 />
             <Button
             raised
                 buttonStyle={{
-                backgroundColor: "rgba(92, 99,216, 1)",
+                backgroundColor: 'rgba(92, 99,216, 1)',
                 padding: 1,
                 margin: 15,
                 height: 40,
-                borderColor: "transparent",
+                borderColor: 'transparent',
                 borderWidth: 0,
                 borderRadius: 5
               }}
@@ -119,7 +120,7 @@ export default class Login extends React.Component {
             <Button 
             raised
                 buttonStyle={{
-                    backgroundColor: "#2f2d30",
+                    backgroundColor: '#2f2d30',
                     padding: 1,
                     margin: 15,
                     height: 40,
@@ -164,9 +165,9 @@ const styles = StyleSheet.create({
        margin: 15,
        height: 40
     },
-    submitButtonText:{
-       color: 'white'
-    }
+   //submitButtonText:{
+     //  color: 'white'
+    //}
  })
 
  /*

@@ -1,8 +1,7 @@
-import PropTypes from "prop-types";
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import firebase from "firebase";
-import * as ReactNavigation from "react-native-elements";
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import * as ReactNavigation from 'react-native-elements';
 
 export default class AddNewApi extends React.Component {
   static propTypes = {
@@ -33,15 +32,15 @@ export default class AddNewApi extends React.Component {
       <View>
         <ReactNavigation.Card
           containerStyle={{
-            backgroundColor: "#2f2d30",
-            borderColor: "black"
+            backgroundColor: '#2f2d30',
+            borderColor: 'black'
           }}
           title={cardTitle}
           titleStyle={titleStyle}
           image={image}
           style={styles.container}
         >
-          <Text style={{ marginBottom: 10, color: "pink" }}>{content}</Text>
+          <Text style={{ marginBottom: 10, color: 'pink' }}>{content}</Text>
 
           <ReactNavigation.Button
             title={buttonTitle}
@@ -56,19 +55,19 @@ export default class AddNewApi extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#2f2d30",
+    backgroundColor: '#2f2d30',
     flex: 1
   },
   color: {
-    backgroundColor: "#2f2d30"
+    backgroundColor: '#2f2d30'
   },
 
   input: {
-    backgroundColor: "rgba(92, 99,216, 1)",
+    backgroundColor: 'rgba(92, 99,216, 1)',
     padding: 1,
     margin: 15,
     height: 40,
-    borderColor: "transparent",
+    borderColor: 'transparent',
     borderWidth: 0,
     borderRadius: 5
   },
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
   input_paswd: {
     margin: 15,
     height: 40,
-    borderColor: "#7a42f4",
+    borderColor: '#7a42f4',
     borderWidth: 1
   },
 
@@ -86,6 +85,6 @@ const styles = StyleSheet.create({
     height: 40
   },
   submitButtonText: {
-    color: "white"
+    color: 'white'
   }
 });

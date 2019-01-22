@@ -1,17 +1,15 @@
-import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-import ScreenStack from "./Navigation/navigator";
-import NavigatorService from "./Navigation/NavigatorService";
-import { ThemeProvider } from "react-native-elements";
-import * as firebase from "firebase";
-import FirebaseCredentials from "./Credentials/FirebaseCredentials";
+import ScreenStack from './Navigation/navigator';
+import NavigatorService from './Navigation/NavigatorService';
+import { ThemeProvider } from 'react-native-elements';
 
 const theme = {
   Button: {
     raised: true,
     titleStyle: {
-      color: "pink"
+      color: 'pink'
     }
   }
 };

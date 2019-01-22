@@ -1,7 +1,6 @@
-import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-
-import * as firebase from "firebase";
+import React from 'react';
+import firebase from '@firebase/app'
+import '@firebase/auth'
 
 const config_ = {
   apiKey: "AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ",
@@ -19,11 +18,11 @@ export default class Credentials extends React.Component {
     currentUser2 = firebase.auth().currentUser;
   }
 
-  componentDidMount() {
+  /*componentDidMount() {
     if (this.state.isConnected) {
       return this.props.navigation.navigate("Welcome");
     } else return this.props.navigation.navigate("Login");
-  }
+  }*/
 
   initFirebase = config_ => {
     this.config_ = config_;
@@ -53,9 +52,9 @@ export default class Credentials extends React.Component {
   };
 
   render() {
-    /* if (this.state.isConnected) {
+     if (this.state.isConnected) {
       return this.props.navigation.navigate("Welcome");
-    } else return this.props.navigation.navigate("Login");*/
+    } else return this.props.navigation.navigate("Login");
     return null;
   }
 }

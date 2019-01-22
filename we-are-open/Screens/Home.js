@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import React, { Component } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default class Home extends Component {
   render() {
@@ -15,18 +15,18 @@ const styles = StyleSheet.create({
   bottomLeft: {
     width: 100,
     height: 100,
-    backgroundColor: "red"
+    backgroundColor: 'red'
   },
 
   bottomMid: {
     width: 100,
     height: 100,
-    backgroundColor: "blue"
+    backgroundColor: 'blue'
   },
 
   bottomRight: {
     width: 100,
     height: 100,
-    backgroundColor: "green"
+    backgroundColor: 'green'
   }
 });
