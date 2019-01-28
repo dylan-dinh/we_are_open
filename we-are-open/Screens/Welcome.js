@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import firebase from '@firebase/app'
-import '@firebase/auth'
-import * as ReactNavigation from 'react-native-elements';
-import AddNewApi from '../AddNewApi';
+import React, { Component } from "react";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import firebase from "@firebase/app";
+import "@firebase/auth";
+import * as ReactNavigation from "react-native-elements";
+import AddNewApi from "../AddNewApi";
 
 var uid;
 export default class Welcome extends React.Component {
@@ -40,7 +40,7 @@ export default class Welcome extends React.Component {
         <AddNewApi
           buttonStyles={styles.input}
           cardTitle={"Google Business API"}
-          titleStyle={{ color: 'pink' }}
+          titleStyle={{ color: "pink" }}
           image={require("../assets/G_logo.png")}
           content={
             "Here you can post new event through our app or changing info"
@@ -51,18 +51,18 @@ export default class Welcome extends React.Component {
 
         <AddNewApi
           buttonStyles={styles.input}
-          cardTitle={"New card"}
-          titleStyle={{ color: 'pink' }}
+          cardTitle={"Facebook API"}
+          titleStyle={{ color: "pink" }}
           image={require("../assets/Facebook-icon.png")}
-          content={"Custom text"}
-          buttonTitle={"View new API"}
-          onPress={() => this.props.navigation.navigate("GoogleBusinessApi")}
+          content={"Manage your info and post content"}
+          buttonTitle={"View Facebook API"}
+          onPress={() => this.props.navigation.navigate("FacebookApi")}
         />
 
         <ReactNavigation.Button
           title="Disconnect"
           buttonStyle={{
-            backgroundColor: '#2f2d30',
+            backgroundColor: "#2f2d30",
             padding: 1,
             margin: 15,
             height: 40,
@@ -84,12 +84,12 @@ export default class Welcome extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2f2d30',
+    backgroundColor: "#2f2d30",
     flex: 1
   },
 
   input: {
-    backgroundColor: '#2f2d30',
+    backgroundColor: "#2f2d30",
     padding: 1,
     margin: 15,
     height: 40,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   input_paswd: {
     margin: 15,
     height: 40,
-    borderColor: '#7a42f4',
+    borderColor: "#7a42f4",
     borderWidth: 1
   }
 });

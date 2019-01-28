@@ -1,12 +1,13 @@
-import * as ReactNavigation from 'react-navigation';
+import * as ReactNavigation from "react-navigation";
 
-import CredentialsScreen from '../Credentials/Credentials';
-import LoginScreen from '../Screens/Login';
-import WelcomeScreen from '../Screens/Welcome';
-import RegisterScreen from '../Screens/Register';
-import HomeScreen from '../Screens/Home';
-import GoogleBusinessApiScreen from '../Screens/GoogleBusinessApi';
-import GetInfoUserScreen from '../Screens/GetInfoUser';
+import CredentialsScreen from "../Credentials/Credentials";
+import LoginScreen from "../Screens/Login";
+import WelcomeScreen from "../Screens/Welcome";
+import RegisterScreen from "../Screens/Register";
+import HomeScreen from "../Screens/Home";
+import GoogleBusinessApiScreen from "../Screens/GoogleBusinessApi";
+import GetInfoUserScreen from "../Screens/GetInfoUser";
+import FacebookApiScreen from "../Screens/FacebookApi";
 
 const AppNavigator = ReactNavigation.createStackNavigator(
   {
@@ -18,8 +19,11 @@ const AppNavigator = ReactNavigation.createStackNavigator(
       })
     },
 
-    Home: {
-      screen: HomeScreen
+    FacebookApi: {
+      screen: FacebookApiScreen,
+      navigationOptions: () => ({
+        title: "Facebook API"
+      })
     },
 
     GetInfoUser: {
@@ -68,10 +72,10 @@ const AppNavigator = ReactNavigation.createStackNavigator(
     initialRouteName: "Credentials",
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: '#2f2d30'
+        backgroundColor: "#2f2d30"
       },
-      headerTintColor: 'pink',
-      headerTitleStyle: 'pink'
+      headerTintColor: "pink",
+      headerTitleStyle: "pink"
     }
   }
 );

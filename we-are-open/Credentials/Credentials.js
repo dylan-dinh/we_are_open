@@ -13,7 +13,7 @@ export default class Credentials extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isConnected: false };
-    this.initFirebase(config_);
+    this.initFirebase();
     this.isUserConnected();
     currentUser2 = firebase.auth().currentUser;
   }
@@ -24,18 +24,13 @@ export default class Credentials extends React.Component {
     } else return this.props.navigation.navigate("Login");
   }*/
 
-  initFirebase = config_ => {
-    this.config_ = config_;
+  initFirebase = () => {
     firebase.initializeApp({
       apiKey: "AIzaSyDCxwGauLbRosZvlmeCKyPgIe3DiLkCgGQ",
       authDomain: "we-are-open-91c93.firebaseapp.com",
       databaseURL: "https://we-are-open-91c93.firebaseio.com",
       storageBucket: "gs://we-are-open-91c93.appspot.com"
     });
-  };
-
-  handleFirebaseCredentials = () => {
-    this.initFirebase(config_);
   };
 
   isUserConnected = () => {
