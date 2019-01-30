@@ -6,7 +6,7 @@ import WelcomeScreen from "../Screens/Welcome";
 import RegisterScreen from "../Screens/Register";
 import HomeScreen from "../Screens/Home";
 import GoogleBusinessApiScreen from "../Screens/GoogleBusinessApi";
-import GetInfoUserScreen from "../Screens/GetInfoUser";
+import GoogleApiRequestHTTPScreen from "../Screens/GoogleApiRequestHTTP";
 import FacebookApiScreen from "../Screens/FacebookApi";
 
 const AppNavigator = ReactNavigation.createStackNavigator(
@@ -26,10 +26,10 @@ const AppNavigator = ReactNavigation.createStackNavigator(
       })
     },
 
-    GetInfoUser: {
-      screen: GetInfoUserScreen,
+    GoogleApiRequestHTTP: {
+      screen: GoogleApiRequestHTTPScreen,
       navigationOptions: () => ({
-        title: "Google Business API",
+        title: "Make your choice !",
         headerBackTitle: null
       })
     },

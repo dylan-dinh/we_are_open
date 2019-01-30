@@ -12,10 +12,9 @@ export default class GoogleBusinessApi extends React.Component {
       jsonGoogleAccountDisconnected2: "",
       resp2: "",
       isInitialize: false,
-      isAuthorize: null,
       accessToken: "",
       jsonRevokeAccess2: "",
-      errorDisconnect: ""
+      isConnectedToGoogle: ""
     };
   }
 
@@ -32,6 +31,21 @@ export default class GoogleBusinessApi extends React.Component {
     });
   };
 
+  authorizeGoogle = () => {
+    manager
+      .authorize("google", {
+        scopes: "https://www.googleapis.com/auth/plus.business.manage"
+      })
+      .then(resp => (currentUserAccessToken = resp)) //this.setState({ resp2: resp }))
+      .catch(error => this.setState({ error }));
+    this.setState({ isConnectedToGoogle: true });
+  };
+
+  getAccessTokenFromJson = () => {
+    this.state.accessToken = this.state.resp2.response.credentials.accessToken;
+    alert(this.state.accessToken);
+  };
+
   deauthorize = () => {
     manager.deauthorize("google");
     this.setState({ isInitialize: false });
@@ -45,22 +59,6 @@ export default class GoogleBusinessApi extends React.Component {
     alert("MDR");
   };
 
-  disconnectGoogleAccount = () => {
-    const urlDisconnectGoogleAccount = "https://accounts.google.com/Logout";
-    manager
-      .makeRequest("google", urlDisconnectGoogleAccount, {
-        headers: {
-          "Content-Type": this.state.accessToken
-        }
-      })
-      .then(jsonGoogleAccountDisconnected =>
-        this.setState({
-          jsonGoogleAccountDisconnected2: jsonGoogleAccountDisconnected
-        })
-      )
-      .catch(error => this.setState({ errorDisconnect: error }));
-  };
-
   revokeAccess = () => {
     const urlRevokeAccess =
       "https://accounts.google.com/o/oauth2/revoke?token=" +
@@ -70,62 +68,80 @@ export default class GoogleBusinessApi extends React.Component {
       .then(jsonRevokeAccess =>
         this.setState({ jsonRevokeAccess2: jsonRevokeAccess })
       );
-  };
-
-  getAccessTokenFromJson = () => {
-    this.state.accessToken = this.state.resp2.response.credentials.accessToken;
-    console.log(this.state.accessToken);
-    alert(this.state.accessToken);
-    /*this.state.accessToken = this.setState({
-      accesstoken: this.resp.response.credentials.accessToken
-    });*/
-  };
-
-  authorizeGoogle = () => {
-    manager
-      .authorize("google", {
-        scopes: "profile"
-      })
-      .then(resp => this.setState({ resp2: resp }))
-      .catch(error => this.setState({ error }));
+    this.deauthorize();
+    this.setState({ isConnectedToGoogle: false });
   };
 
   render() {
     if (this.state.isInitialize === false) {
       this.initializeGoogleManager();
+      managerOAuth = manager;
       this.setState({ isInitialize: true });
     }
-    return (
-      <ScrollView style={styles.container}>
-        <Button
-          onPress={() => this.authorizeGoogle()}
-          title="authorize with consent screen"
-        />
-        <Button
-          onPress={() => this.getAccessTokenFromJson()}
-          title="get access token"
-        />
-        <Button
-          onPress={() => this.getGoogleAccountId()}
-          title="request to get goolge id"
-        />
-        <Button onPress={() => this.deauthorize()} title="deauthorize" />
-        <Button onPress={() => this.revokeAccess()} title="Revoke" />
-        <Button
-          onPress={() => this.disconnectGoogleAccount()}
-          title="disconnect"
-        />
-        <Text style={styles.welcome}>{JSON.stringify(this.state.resp2)}</Text>
+    if (this.state.isConnectedToGoogle === false) {
+      return (
+        <ScrollView style={styles.container}>
+          <Text style={styles.welcome}>
+            Here you will connect to your Google Account which is the account
+            link to your business in Google My Business
+          </Text>
 
-        <Text style={styles.welcome}>
-          {JSON.stringify(this.state.jsonRevokeAccess2)}
-        </Text>
+          <Button
+            onPress={() => this.authorizeGoogle()}
+            title="Click to connect your Google Account"
+            buttonStyle={{
+              backgroundColor: "rgba(92, 99,216, 1)",
+              padding: 1,
+              margin: 15,
+              height: 40,
+              borderWidth: 1,
+              borderRadius: 5
+            }}
+          />
+        </ScrollView>
+      );
+    } else {
+      //currentUserAccessToken = this.state.resp2;
+      return (
+        <ScrollView style={styles.container}>
+          <Text style={styles.welcome}>
+            Here you will connect to your Google Account which is the account
+            link to your business in Google My Business
+          </Text>
 
-        <Text style={styles.welcome}>
-          {JSON.stringify(this.state.errorDisconnect)}
-        </Text>
-      </ScrollView>
-    );
+          <Button
+            raised
+            buttonStyle={{
+              backgroundColor: "rgba(92, 99,216, 1)",
+              padding: 1,
+              margin: 15,
+              height: 40,
+              borderWidth: 1,
+              borderRadius: 5
+            }}
+            onPress={() =>
+              this.props.navigation.navigate("GoogleApiRequestHTTP")
+            }
+            title="Manage your business now :-)"
+          />
+
+          <Button
+            onPress={() => this.revokeAccess()}
+            title="Disconnect from your Google Account"
+            buttonStyle={{
+              backgroundColor: "#2f2d30",
+              padding: 1,
+              margin: 15,
+              height: 40,
+              borderWidth: 0,
+              borderRadius: 5,
+              borderColor: "#2f2d30",
+              borderBottomColor: "#2f2d30"
+            }}
+          />
+        </ScrollView>
+      );
+    }
   }
 }
 
@@ -135,7 +151,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#2f2d30"
   },
   welcome: {
-    fontSize: 15,
+    fontSize: 20,
     textAlign: "center",
     color: "white",
     margin: 10

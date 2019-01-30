@@ -161,6 +161,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: "rgba(92, 99,216, 1)",
     borderWidth: 2,
+    color: "pink",
     borderRadius: 5
   },
 
