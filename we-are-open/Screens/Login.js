@@ -110,7 +110,6 @@ export default class Login extends React.Component {
           placeholderTextColor={"pink"}
           autoCapitalize={"none"}
           onChangeText={this.handlePassword}
-          //color = {'pink'}
         />
         <Button
           raised
