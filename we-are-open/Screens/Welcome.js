@@ -18,7 +18,7 @@ export default class Welcome extends React.Component {
       uid = currentUser2;
     }
     return {
-      title: navigation.getParam("otherParam", "Welcome " + uid)
+      title: navigation.getParam("otherParam", "Welcome ")
     };
   };
 
