@@ -38,8 +38,19 @@ export default class FacebookApi extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Button onPress={() => this.authorizeFacebook()} />
-        <Text style={styles.welcome}>{JSON.stringify(this.state.resp)}</Text>
+        <Button
+          raised
+          buttonStyle={{
+            backgroundColor: "rgba(92, 99,216, 1)",
+            padding: 1,
+            margin: 15,
+            height: 40,
+            borderWidth: 1,
+            borderRadius: 5
+          }}
+          onPress={() => this.authorizeFacebook()}
+          title="Connect to your Facebook Account"
+        />
       </View>
     );
   }

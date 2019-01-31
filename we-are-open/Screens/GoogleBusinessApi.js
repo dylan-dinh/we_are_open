@@ -88,7 +88,7 @@ export default class GoogleBusinessApi extends React.Component {
 
           <Button
             onPress={() => this.authorizeGoogle()}
-            title="Click to connect your Google Account"
+            title="Click to connect to your Google Account"
             buttonStyle={{
               backgroundColor: "rgba(92, 99,216, 1)",
               padding: 1,

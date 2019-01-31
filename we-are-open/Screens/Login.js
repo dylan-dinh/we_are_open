@@ -27,6 +27,7 @@ export default class Login extends React.Component {
       goodLength: false,
       accountCreated: false
     };
+    this.isUserConnected();
   }
 
   /*static navigationOptions = ({ navigation, navigationOptions }) => {
@@ -39,6 +40,19 @@ export default class Login extends React.Component {
               headerTintColor: 'rgba(92, 99,216, 1)',
         };
       };*/
+
+  isUserConnected = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.navigation.navigate("Welcome");
+        //currentUser2 = user.uid;
+        this.setState({ isConnected: true });
+      } else {
+        alert("no one is connected");
+        this.setState({ isConnected: false });
+      }
+    });
+  };
 
   handleEmail = text => {
     this.setState({ email: text });
