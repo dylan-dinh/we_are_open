@@ -26,7 +26,7 @@
     "adm-zip": "^0.4.13",
     "firebase": "^5.5.8",
     "firebaseui": "^3.4.1",
-    "googleapis": "^27.0.0",
+    "googleapis": "^39.1.0",
     "plist": "^3.0.1",
     "prop-types": "^15.6.2",
     "react": "16.5.0",
