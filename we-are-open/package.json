@@ -27,10 +27,10 @@
     "firebase": "^5.5.8",
     "firebaseui": "^3.4.1",
     "googleapis": "^27.0.0",
-    "plist": "^3.0.1",
+    "plist": "^3.0.6",
     "prop-types": "^15.6.2",
     "react": "16.5.0",
-    "react-native": "0.57.1",
+    "react-native": "0.70.2",
     "react-native-elements": "^1.0.0-beta7",
     "react-native-firebase": "^5.0.0",
     "react-native-gesture-handler": "^1.0.12",
@@ -40,6 +40,6 @@
     "react-router": "^4.2.0",
     "react-router-native": "^4.3.0",
     "react-router-navigation": "^2.0.0-alpha.10",
-    "xcode": "^1.1.0"
+    "xcode": "^3.0.1"
   }
 }
